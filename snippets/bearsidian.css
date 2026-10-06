@@ -1150,7 +1150,8 @@ body {
 .nav-folder-title:has(.iconic-icon)::before {
     content: "›";
     position: absolute;
-    left: 0px;
+    /* Match the native caret column; only the manufactured caret moves. */
+    left: 2px;
     top: 50%;
     width: 20px;
     height: 20px;
