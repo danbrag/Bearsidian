@@ -28,7 +28,7 @@ body {
     --bear-sidebar-text: #d5d7d8;
     --bear-sidebar-folder: #d9dbdc;
     --bear-sidebar-file: #c5c8ca;
-    --bear-tab-inactive-text: var(--bear-sidebar-file);
+    --bear-tab-inactive-text: #929698;
     --bear-sidebar-muted: #a5aaac;
     --bear-sidebar-faint: #7e8487;
     --bear-sidebar-icon: #aeb3b5;
