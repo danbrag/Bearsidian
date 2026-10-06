@@ -1,0 +1,180 @@
+.nav-file-title,
+.nav-folder-title {
+    font-size: 14px !important;
+}
+
+
+/* ==========================================================
+   BEAR-STYLE FOLDER CARETS + ICONIC ICONS
+
+   Layout:
+       caret   icon   folder name
+
+   Obsidian continues to control all hierarchy/indentation.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   NORMAL FOLDERS
+   ---------------------------------------------------------- */
+
+/* Hide Obsidian's original triangle */
+.nav-folder-title
+.collapse-icon:not(.iconic-icon) svg {
+    display: none !important;
+}
+
+/* Replace it with our consistent Bear-style caret */
+.nav-folder-title
+.collapse-icon:not(.iconic-icon)::before {
+    content: "›";
+
+    display: block;
+
+    font-size: 22px;
+    line-height: 20px;
+
+    color: var(--bear-sidebar-muted);
+
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+/* Expanded */
+.nav-folder-title
+.collapse-icon:not(.iconic-icon):not(.is-collapsed)::before {
+    transform: rotate(90deg);
+}
+
+
+/* ----------------------------------------------------------
+   ICONIC FOLDERS
+   ---------------------------------------------------------- */
+
+/*
+   Iconic replaces Obsidian's collapse-icon SVG with its own
+   icon. Move that icon LEFT of the normal folder-name column.
+*/
+
+.nav-folder-title .iconic-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+
+    /*
+       Obsidian already absolutely positions tree-item-icon.
+       Move Iconic's icon into our icon column.
+    */
+    margin-inline-start: 3px !important;
+}
+
+
+/* Icon size */
+
+.nav-folder-title .iconic-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   CARET FOR ICONIC FOLDERS
+   ---------------------------------------------------------- */
+
+/*
+   Iconic stole the real caret element, so manufacture a new
+   one on the folder title itself.
+*/
+
+.nav-folder-title:has(.iconic-icon)::before {
+    content: "›";
+
+    position: absolute;
+
+    /*
+       Place caret immediately LEFT of Iconic's icon.
+    */
+    left: 0px;
+
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    line-height: 20px;
+
+    color: var(--bear-sidebar-muted);
+
+    transform: translateY(-50%) rotate(0deg);
+    transform-origin: center;
+}
+
+
+/* Expanded Iconic folder */
+
+.nav-folder-title:has(
+    .iconic-icon:not(.is-collapsed)
+)::before {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+
+/* ----------------------------------------------------------
+   ICONIC FOLDER NAME
+   ---------------------------------------------------------- */
+
+/*
+   Make room for the additional Iconic icon.
+
+   This affects ONLY folders that actually have an icon.
+*/
+
+.nav-folder-title:has(.iconic-icon)
+.nav-folder-title-content {
+    margin-inline-start: 30px !important;
+}
+
+
+/* ----------------------------------------------------------
+   WHOLE TREE POSITION
+   ---------------------------------------------------------- */
+
+/*
+   Bear leaves some breathing room between the sidebar edge
+   and the first caret.
+*/
+
+.nav-files-container {
+    padding-left: 15px !important;
+}
+/* ----------------------------------------------------------
+   ICONIC FILE ICONS
+   Align note icons with our Bear-style folder layout
+   ---------------------------------------------------------- */
+
+.nav-file-title .tree-item-icon.iconic-icon {
+    margin-inline-start: -14px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.nav-file-title .tree-item-icon.iconic-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: none !important;
+    max-height: none !important;
+}
+
+/* Make room between file icon and note title */
+.nav-file-title:has(.iconic-icon)
+.nav-file-title-content {
+    margin-inline-start: 12px !important;
+}
