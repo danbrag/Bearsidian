@@ -28,6 +28,7 @@ body {
     --bear-sidebar-text: #d5d7d8;
     --bear-sidebar-folder: #d9dbdc;
     --bear-sidebar-file: #c5c8ca;
+    --bear-tab-inactive-text: var(--bear-sidebar-file);
     --bear-sidebar-muted: #a5aaac;
     --bear-sidebar-faint: #7e8487;
     --bear-sidebar-icon: #aeb3b5;
@@ -853,6 +854,14 @@ body {
 /* ============================================================
    TAB CONTROLS AND RIBBON EDGES
    ============================================================ */
+
+/* Keep inactive note titles legible against the dark editor tab strip.
+ * Scope to note tabs so active titles and sidebar tab controls keep their styling.
+ */
+.workspace-split.mod-root .workspace-tab-header[data-type="markdown"]:not(.is-active):not(.mod-active) .workspace-tab-header-inner-title {
+    color: var(--bear-tab-inactive-text) !important;
+    opacity: 1 !important;
+}
 
 /* ------------------------------------------------------------
    TOP BAR: + AND CARET

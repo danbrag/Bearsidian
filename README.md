@@ -37,7 +37,7 @@ Replace the vault's `bearsidian.css` with the latest repository copy. Obsidian n
 
 ## Customization and limitations
 
-The `body` variables near the top of the stylesheet control the main sidebar palette. `--bear-editor-bg` on `.theme-light` controls the light editor surface. A retained `:root` palette reflects the original cascade: variables set directly on `body` take precedence over inherited root values. Edit the `body` palette for normal application colors.
+The `body` variables near the top of the stylesheet control the main sidebar palette. `--bear-tab-inactive-text` controls inactive note titles in the editor tab bar and defaults to the sidebar file color. `--bear-editor-bg` on `.theme-light` controls the light editor surface. A retained `:root` palette reflects the original cascade: variables set directly on `body` take precedence over inherited root values. Edit the `body` palette for normal application colors.
 
 When developing, edit **only `snippets/bearsidian.css`** and deploy from the repository. Vault copies are outputs and will be overwritten by deployment. For a shared setup, keep additional personal overrides in a separate snippet and check their cascade order.
 
