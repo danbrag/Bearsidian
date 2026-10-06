@@ -1,4 +1,15 @@
-# Initial consolidation validation
+# Validation and visual review
+
+## Maintainer visual acceptance — October 6, 2026
+
+The maintainer tested the consolidated snippet in their working Obsidian vault and reported that it looked good. Follow-up screenshots and feedback guided two small refinements:
+
+- Inactive Markdown note titles in the editor tab bar use `--bear-tab-inactive-text: #929698` at full opacity, balancing legibility with the active tab's emphasis. Active titles, note icons, and sidebar tab controls retain their existing styling.
+- The manufactured caret for Iconic folders uses `left: 2px`, aligning it with plain-folder carets. Icon/title offsets and native folder hierarchy spacing remain unchanged.
+
+The maintainer accepted these final refinements. Each CSS change passed parsing and diff checks, was committed and pushed, and was deployed to all three available registered vaults with matching bytes. This acceptance covers the appearance exercised by the maintainer; it does not establish coverage of all views, toolbar modes, or platforms.
+
+## Initial consolidation checks
 
 Checks performed against the initial consolidation:
 
@@ -13,11 +24,11 @@ Checks performed against the initial consolidation:
 
 The small CSS parser was installed only into a temporary validation directory. No dependency tree, test framework, permanent hook, or CI was added to this project.
 
-## Remaining native visual checks
+## Additional visual coverage
 
 Deployment copies the snippet but does not enable it or disable older snippets. Enable `bearsidian` and disable the two superseded custom snippets in Obsidian before evaluating it on its own. Keep Focus Mode dimming independent.
 
-A full visual acceptance pass has not been performed. Check:
+The following scenarios have not been comprehensively verified and remain useful checks after future CSS, theme, or plugin changes:
 
 - Light/dark editor, both sidebars, hover/active states, tabs, titlebar, status bar, vault controls, and lower ribbon corners.
 - Several nesting depths, collapsed/expanded folders, folders with and without Iconic icons, note icons, SVG and emoji icons; confirm native hierarchy remains intact.

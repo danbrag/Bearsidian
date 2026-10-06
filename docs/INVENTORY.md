@@ -23,6 +23,8 @@ No rule can confidently be labeled dead from source inspection alone. Legacy tit
 
 ## Complete source rule inventory
 
+After the initial behavior-preserving consolidation, maintainer visual feedback led to two accepted refinements: medium-gray inactive note titles (`#929698`, configurable through `--bear-tab-inactive-text`) and a 2px rightward adjustment of the manufactured Iconic folder caret. All other tuned icon/title offsets and native hierarchy spacing were retained. See [validation and visual review](VALIDATION.md).
+
 Line numbers refer to the original import commit (recoverable through Git history). Each source rule and its declarations appears below, including superseded rules.
 
 | Source | Selector(s) | Declarations |

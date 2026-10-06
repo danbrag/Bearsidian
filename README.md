@@ -7,6 +7,7 @@ Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obs
 - Dark left and right sidebars, ribbons, navigation controls, vault switcher, titlebar, and status bar.
 - Off-white editor and empty-note surfaces in light mode; Bear Style continues to supply the dark editor.
 - File/folder labels, Bear-style folder carets, and carefully aligned Iconic file/folder icons, while retaining Obsidian's native hierarchy indentation.
+- Readable medium-gray inactive note titles in the editor tab bar, with the active tab retaining its theme styling.
 - Balanced Editing Toolbar insets and darker versions of its six standard pastel highlight colors.
 
 ## Requirements and compatibility
@@ -15,7 +16,7 @@ Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obs
 
 **Optional:** [Iconic](https://github.com/gfxholo/iconic) for custom file/folder icons, and [Editing Toolbar](https://github.com/PKM-er/obsidian-editing-toolbar) for the toolbar and highlight integrations. Neither plugin is required to use the sidebar/chrome customization. Focus Mode dimming remains an independent snippet and is not included.
 
-The source configuration was inspected on macOS with Obsidian **1.14.4**, Bear Style **1.2.1**, Iconic **1.1.10**, and Editing Toolbar **4.1.5**. Consolidation was checked through CSS parsing and source cascade comparison, not a full native visual acceptance pass. Mobile, Windows, Linux, other themes, and other plugin/version combinations have not been tested.
+The source configuration was inspected on macOS with Obsidian **1.14.4**, Bear Style **1.2.1**, Iconic **1.1.10**, and Editing Toolbar **4.1.5**. The maintainer tested the consolidated snippet in their working vault and accepted its appearance, including the final inactive-tab text contrast and Iconic caret alignment. CSS parsing, source cascade comparison, and copy deployment were also verified. This is not a comprehensive check of every view or plugin mode; see [validation details](docs/VALIDATION.md). Mobile, Windows, Linux, other themes, and other plugin/version combinations have not been tested.
 
 ## Installation
 
