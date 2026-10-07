@@ -6,6 +6,7 @@ Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obs
 
 - Dark left and right sidebars, ribbons, navigation controls, vault switcher, titlebar, and status bar.
 - Consistent dark result cards, readable excerpts and match highlights for sidebar mentions and search results, with hover and focus colors.
+- Readable sidebar property values, tags, links, native date controls, footnotes, and search fields in both color modes.
 - Off-white editor and empty-note surfaces in light mode; Bear Style continues to supply the dark editor.
 - File/folder labels, Bear-style folder carets, and carefully aligned Iconic file/folder icons, while retaining Obsidian's native hierarchy indentation.
 - Readable medium-gray inactive note titles in the editor tab bar, with the active tab retaining its theme styling.
@@ -17,7 +18,7 @@ Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obs
 
 **Optional:** [Iconic](https://github.com/gfxholo/iconic) for custom file/folder icons, and [Editing Toolbar](https://github.com/PKM-er/obsidian-editing-toolbar) for the toolbar and highlight integrations. Neither plugin is required to use the sidebar/chrome customization. Focus Mode dimming remains an independent snippet and is not included.
 
-The source configuration was inspected on macOS with Obsidian **1.14.4**, Bear Style **1.2.1**, Iconic **1.1.10**, and Editing Toolbar **4.1.5**. The maintainer tested the consolidated snippet in their working vault and accepted its appearance, including the final inactive-tab text contrast and Iconic caret alignment. CSS parsing, source cascade comparison, and copy deployment were also verified. This is not a comprehensive check of every view or plugin mode; see [validation details](docs/VALIDATION.md). Mobile, Windows, Linux, other themes, and other plugin/version combinations have not been tested.
+The source configuration was inspected on macOS with Obsidian **1.14.4**, Bear Style **1.2.1**, Iconic **1.1.10**, and Editing Toolbar **4.1.5**. The maintainer tested the consolidated snippet in their working vault and accepted its appearance, including the final inactive-tab text contrast and Iconic caret alignment. CSS parsing, source cascade comparison, and copy deployment were also verified. A subsequent scratchpad audit exercised sidebar mentions, search, properties, footnotes, outline, tags, bookmarks, and narrow layouts in both modes. This is not a comprehensive check of every view or plugin mode; see [validation details](docs/VALIDATION.md). Mobile, Windows, Linux, other themes, and other plugin/version combinations have not been tested.
 
 ## Installation
 
@@ -39,7 +40,7 @@ Replace the vault's `bearsidian.css` with the latest repository copy. Obsidian n
 
 ## Customization and limitations
 
-The `body` variables near the top of the stylesheet control the main sidebar palette. `--bear-tab-inactive-text` controls inactive note titles in the editor tab bar and defaults to a medium gray (`#929698`). `--bear-editor-bg` on `.theme-light` controls the light editor surface. A retained `:root` palette reflects the original cascade: variables set directly on `body` take precedence over inherited root values. Edit the `body` palette for normal application colors.
+The `body` variables near the top of the stylesheet control the main sidebar palette. `--bear-sidebar-accent` controls the readable pink accent used for sidebar property tags/links and footnote links. `--bear-tab-inactive-text` controls inactive note titles in the editor tab bar and defaults to a medium gray (`#929698`). `--bear-editor-bg` on `.theme-light` controls the light editor surface. A retained `:root` palette reflects the original cascade: variables set directly on `body` take precedence over inherited root values. Edit the `body` palette for normal application colors.
 
 When developing, edit **only `snippets/bearsidian.css`** and deploy from the repository. Vault copies are outputs and will be overwritten by deployment. For a shared setup, keep additional personal overrides in a separate snippet and check their cascade order.
 
@@ -84,7 +85,8 @@ Documentation-only commits do not require deployment. No Git hook is installed. 
 - `scripts/deploy.sh` — optional registered-vault copy helper.
 - `docs/INVENTORY.md` — complete original rule inventory and consolidation decisions.
 - `docs/VALIDATION.md` — initial verification evidence and outstanding visual checks.
-- `screenshots/` — reserved for future screenshots reviewed for public sharing.
+- `docs/QA_SCENARIOS.md` and `docs/qa-fixtures/` — repeatable synthetic vault scenarios and native audit coverage.
+- `screenshots/qa/` — cropped comparisons using synthetic fixture content.
 
 Original imported CSS is recoverable from the initial inventory commit in Git history. Local originals are preserved during migration; the current repository keeps one canonical snippet.
 

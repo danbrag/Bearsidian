@@ -32,6 +32,7 @@ body {
     --bear-sidebar-muted: #a5aaac;
     --bear-sidebar-faint: #7e8487;
     --bear-sidebar-icon: #aeb3b5;
+    --bear-sidebar-accent: #efa4a6;
     --bear-sidebar-border: rgba(255, 255, 255, 0.07);
 }
 
@@ -827,15 +828,97 @@ body {
 
 .workspace-split.mod-right-split input,
 .workspace-split.mod-right-split textarea,
-.workspace-split.mod-right-split .search-input-container input {
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-input-container input {
     color: var(--bear-sidebar-text) !important;
     background-color: var(--bear-sidebar-hover) !important;
     border-color: var(--bear-sidebar-border) !important;
 }
 
 .workspace-split.mod-right-split input::placeholder,
-.workspace-split.mod-right-split textarea::placeholder {
+.workspace-split.mod-right-split textarea::placeholder,
+.workspace-split.mod-left-split .search-input-container input::placeholder {
     color: var(--bear-sidebar-muted) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-input-container {
+    --background-modifier-border-focus: var(--bear-sidebar-muted);
+    --input-placeholder-color: var(--bear-sidebar-muted);
+    --search-icon-color: var(--bear-sidebar-icon);
+}
+
+/* Properties use body-resolved aliases for values and pills. Rebind these
+ * inside the dark sidebar, including editable text and property row states. */
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container {
+    --metadata-label-text-color: var(--bear-sidebar-muted);
+    --metadata-label-text-color-hover: var(--bear-sidebar-text);
+    --metadata-input-text-color: var(--bear-sidebar-text);
+    --metadata-border-color: var(--bear-sidebar-border);
+    --metadata-divider-color: var(--bear-sidebar-border);
+    --metadata-divider-color-hover: var(--bear-sidebar-border);
+    --metadata-divider-color-focus: var(--bear-sidebar-border);
+    --metadata-property-background-hover: var(--bear-sidebar-hover);
+    --metadata-property-background-active: var(--bear-sidebar-active);
+    --metadata-property-box-shadow-hover: 0 0 0 1px var(--bear-sidebar-border);
+    --metadata-property-box-shadow-focus: 0 0 0 2px var(--bear-sidebar-muted);
+    --metadata-label-background: transparent;
+    --metadata-label-background-hover: transparent;
+    --metadata-label-background-active: transparent;
+    --metadata-input-background: transparent;
+    --metadata-input-background-hover: transparent;
+    --metadata-input-background-active: transparent;
+    --pill-color: var(--bear-sidebar-text);
+    --pill-color-hover: var(--bear-sidebar-white);
+    --pill-color-remove: var(--bear-sidebar-muted);
+    --pill-color-remove-hover: var(--bear-sidebar-white);
+    --pill-background-hover: var(--bear-sidebar-active);
+    --tag-color: var(--bear-sidebar-accent);
+    --tag-color-hover: var(--bear-sidebar-white);
+    --tag-background: var(--bear-sidebar-hover);
+    --tag-background-hover: var(--bear-sidebar-active);
+    --link-color: var(--bear-sidebar-accent);
+    --link-color-hover: var(--bear-sidebar-white);
+    --checkbox-border-color: var(--bear-sidebar-icon);
+    --checkbox-border-color-hover: var(--bear-sidebar-white);
+}
+
+/* Let the property row supply the surface instead of painting each input. */
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input:not([type="checkbox"]),
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container textarea {
+    background-color: transparent !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input[type="checkbox"] {
+    background-color: transparent !important;
+    border-color: var(--checkbox-border-color) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input[type="checkbox"]:checked {
+    background-color: var(--checkbox-color) !important;
+    border-color: var(--checkbox-color) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input[type="checkbox"]:is(:hover, :focus-visible) {
+    border-color: var(--checkbox-border-color-hover) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input[type="date"],
+.workspace-split:is(.mod-left-split, .mod-right-split) .metadata-container input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+/* Footnotes embed a rendered editor; Bear Style's editor text alias remains
+ * dark in light mode unless it is rebound at this sidebar view. */
+.workspace-split:is(.mod-left-split, .mod-right-split) .footnotes-view {
+    --bear-text-color: var(--bear-sidebar-text);
+    --footnote-id-color: var(--bear-sidebar-muted);
+    --footnote-id-color-no-occurrences: var(--bear-sidebar-muted);
+    --footnote-divider-color: var(--bear-sidebar-border);
+    --footnote-divider-color-active: var(--bear-sidebar-muted);
+    --footnote-input-background: transparent;
+    --footnote-input-background-active: var(--bear-sidebar-hover);
+    --background-modifier-border-focus: var(--bear-sidebar-muted);
+    --link-color: var(--bear-sidebar-accent);
+    --link-color-hover: var(--bear-sidebar-white);
 }
 
 /* ------------------------------------------------------------

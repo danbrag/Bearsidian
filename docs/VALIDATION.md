@@ -19,7 +19,25 @@ The read-only `scripts/capture-mention-styles.js` helper collects computed style
 
 Automated Chromium checks replayed the supplied matched-rule cascade and reproduced the original pale card/muted text combination. A standalone result fixture then passed 12 combinations of light/dark mode, left/right sidebar, and backlink/outgoing-link/search view. Checks covered card and highlight colors, excerpt text, pointer hover, `.has-focus`, keyboard focus outlines, and a long excerpt at a narrow width. Main-editor card styles remained unchanged in both modes. The fixture uses captured rules plus locally installed Obsidian result interaction rules; it is not a complete live Obsidian DOM or full theme reconstruction. The canonical stylesheet parsed in Chromium, the capture helper passed JavaScript syntax checking, and the diff passed whitespace checking.
 
-Live visual acceptance of this correction in Obsidian remains pending.
+On October 7, the maintainer enabled Bearsidian in the test vault, supplied light/dark screenshots showing the corrected cards and highlights, and accepted their appearance. The subsequent native audit expanded coverage beyond those linked-mention screenshots; see below.
+
+## Native sidebar audit — October 7, 2026
+
+With the maintainer's authorization, five synthetic Markdown notes were created in the scratchpad vault. The two legacy snippets were disabled through Obsidian Settings so the audit exercised Bearsidian plus the independent Focus Mode dimming snippet. No new plugin was installed.
+
+Native screenshots and live DevTools DOM/computed-style captures identified three additional light-mode defects:
+
+- Sidebar alias pills and plain-text properties used `#222222` against the dark sidebar. Local metadata palette bindings now supply readable values, tags, links, row interaction states, and subdued dividers. Property inputs use the row surface, unchecked checkboxes have a readable border and checked checkboxes keep their accent, and native date controls use a dark color scheme within sidebar metadata only.
+- Footnotes rendered an embedded editor with Bear Style's light-mode `--bear-text-color: #444`. The Footnotes sidebar now locally binds that alias and its identifier/divider/editing palette.
+- The left Search field used a white background with sidebar-colored text. Sidebar search fields now share the dark input surface, readable placeholders, and a suitable focus border.
+
+Live light/dark checks covered linked and unlinked mentions, aliases, task excerpts, multiple matches, long titles/context, outgoing links (including an unlinked destination), global search and zero-result states, file/all properties, outline, nested tags, grouped bookmarks, and Quick Switcher suggestions. A light-mode bookmark context menu and native property calendar were also inspected. Property focus and a checked/unchecked checkbox were exercised. Clicking an unlinked mention's **Link** button changed the fixture from 10 linked / 4 unlinked mentions to 11 linked / 3 unlinked mentions and persisted the wikilink to the note.
+
+The right sidebar was checked at 300 px and 220 px. At 220 px, native property rows stack labels/values, outline titles wrap, and mention controls remain available. In-document backlinks were checked in Reading view in both modes and retain the main editor palette. The original sidebar sizes and disabled in-document backlink state were restored after the audit. The scratchpad retains the synthetic notes and grouped bookmark for further checking.
+
+Eight Chromium replay combinations used captured live property/footnote/search DOM and the actual running Obsidian/theme/plugin styles: light/dark, left/right sidebar, and 220/300 px widths. They reproduced the original light-mode property and footnote defects, verified the correction, and confirmed a property panel in the center retains its existing text color. Chromium parsed all 155 canonical rules with no empty declaration blocks. Native screenshots provide the separate visual evidence; the replay is not a replacement for app interaction.
+
+Reviewed comparison images are in [`screenshots/qa`](../screenshots/qa/). See [QA scenarios](QA_SCENARIOS.md) for fixture setup and the coverage table. Raw DOM/style exports and full-window captures were kept outside the repository. Page-preview hover behavior, additional windows, stacked tabs, Canvas, Bases, mobile, and unlisted plugin surfaces remain outside verified coverage. An attempted programmatic page-preview hook did not retain a visible popover, so it is not counted as visual evidence.
 
 ## Initial consolidation checks
 
