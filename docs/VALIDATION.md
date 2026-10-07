@@ -9,6 +9,18 @@ The maintainer tested the consolidated snippet in their working Obsidian vault a
 
 The maintainer accepted these final refinements. Each CSS change passed parsing and diff checks, was committed and pushed, and was deployed to all three available registered vaults with matching bytes. This acceptance covers the appearance exercised by the maintainer; it does not establish coverage of all views, toolbar modes, or platforms.
 
+## Sidebar mention contrast correction — October 6, 2026
+
+A maintainer-supplied DevTools capture confirmed that the right-sidebar backlink excerpt used muted sidebar text (`#a5aaac`) on a light result-card background (`#f7f6f3`). The result card also inherited the light border palette, and matched text used a pale yellow highlight. The captured DOM includes `.search-result-container`, `.search-result-file-matches`, `.search-result-file-match`, and `.search-result-file-matched-text`.
+
+The correction supplies a local result palette in either sidebar, covering the shared result structure used by linked/unlinked mentions, outgoing links, and search. It sets dark card/border/interaction colors, brighter excerpt text, and white matched text on a dark amber highlight. Main-editor result cards retain the theme palette. Native wrapping, collapse behavior, and result layout are preserved.
+
+The read-only `scripts/capture-mention-styles.js` helper collects computed styles and matching rules without note text or link destinations. Inspect a mention in DevTools Elements, then run the script in Console. It copies a report to the clipboard. Review reports before sharing, because custom CSS may contain private URLs or paths.
+
+Automated Chromium checks replayed the supplied matched-rule cascade and reproduced the original pale card/muted text combination. A standalone result fixture then passed 12 combinations of light/dark mode, left/right sidebar, and backlink/outgoing-link/search view. Checks covered card and highlight colors, excerpt text, pointer hover, `.has-focus`, keyboard focus outlines, and a long excerpt at a narrow width. Main-editor card styles remained unchanged in both modes. The fixture uses captured rules plus locally installed Obsidian result interaction rules; it is not a complete live Obsidian DOM or full theme reconstruction. The canonical stylesheet parsed in Chromium, the capture helper passed JavaScript syntax checking, and the diff passed whitespace checking.
+
+Live visual acceptance of this correction in Obsidian remains pending.
+
 ## Initial consolidation checks
 
 Checks performed against the initial consolidation:

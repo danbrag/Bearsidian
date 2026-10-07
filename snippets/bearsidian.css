@@ -781,6 +781,46 @@ body {
     color: var(--bear-sidebar-muted) !important;
 }
 
+/* Search results are also used by linked/unlinked mentions and outgoing links.
+ * Set their palette locally: body-level aliases otherwise resolve against the
+ * light editor before inheriting into a dark sidebar. Keep embedded results in
+ * the main editor under Bear Style's control. Apply to either sidebar. */
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-result-container {
+    --background-primary-alt: var(--bear-sidebar-hover);
+    --search-result-background: var(--bear-sidebar-hover);
+    --background-modifier-border: var(--bear-sidebar-scrollbar);
+    --background-modifier-border-hover: var(--bear-sidebar-muted);
+    --background-modifier-border-focus: var(--bear-sidebar-muted);
+    --background-modifier-hover: var(--bear-sidebar-active);
+    --interactive-normal: var(--bear-sidebar-bg);
+    --interactive-hover: var(--bear-sidebar-active);
+    --text-normal: var(--bear-sidebar-text);
+    --text-muted: var(--bear-sidebar-muted);
+    --text-faint: var(--bear-sidebar-muted);
+    --text-selection: var(--bear-sidebar-active);
+    --text-highlight-bg: #655534;
+    --highlight-background: var(--text-highlight-bg);
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-result-container .search-result-file-match {
+    color: var(--bear-sidebar-text) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-result-container .search-result-file-matched-text {
+    color: var(--bear-sidebar-white) !important;
+    background-color: var(--text-highlight-bg) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-result-container .search-result-file-match:is(:hover, .mobile-tap, .has-focus) {
+    color: var(--bear-sidebar-white) !important;
+    background-color: var(--bear-sidebar-active) !important;
+}
+
+.workspace-split:is(.mod-left-split, .mod-right-split) .search-result-container :focus-visible {
+    outline: 2px solid var(--bear-sidebar-muted);
+    outline-offset: -2px;
+}
+
 /* ------------------------------------------------------------
    INPUTS / SEARCH BOXES
    ------------------------------------------------------------ */

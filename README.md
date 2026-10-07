@@ -5,6 +5,7 @@ Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obs
 ## What it changes
 
 - Dark left and right sidebars, ribbons, navigation controls, vault switcher, titlebar, and status bar.
+- Consistent dark result cards, readable excerpts and match highlights for sidebar mentions and search results, with hover and focus colors.
 - Off-white editor and empty-note surfaces in light mode; Bear Style continues to supply the dark editor.
 - File/folder labels, Bear-style folder carets, and carefully aligned Iconic file/folder icons, while retaining Obsidian's native hierarchy indentation.
 - Readable medium-gray inactive note titles in the editor tab bar, with the active tab retaining its theme styling.
