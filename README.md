@@ -1,6 +1,15 @@
 # Bearsidian
 
-Bearsidian is a CSS enhancement layer that makes the **Bear Style** theme in Obsidian look and behave more like Bear. It preserves a set of manually tuned desktop customizations in one maintainable snippet. It is not a standalone theme.
+Bearsidian is a CSS enhancement layer that makes the [**Bear Style**](https://github.com/cherishh/obsidian-bear-style) theme in Obsidian look and behave more like Bear. It preserves a set of manually tuned desktop customizations in one maintainable snippet. It is not a standalone theme.
+
+## Attribution
+
+Bearsidian builds on **Bear Style**, the original Obsidian theme by [cherishh](https://github.com/cherishh). Credit for the underlying theme and its Bear-inspired design goes to the original author. Thank you for creating the foundation for these customizations.
+
+- [Original Bear Style project](https://github.com/cherishh/obsidian-bear-style)
+- [Bear Style MIT license](https://github.com/cherishh/obsidian-bear-style/blob/main/LICENSE)
+
+Bearsidian adds the sidebar, chrome, and plugin refinements described below as a separate CSS snippet layered over Bear Style.
 
 ## What it changes
 
